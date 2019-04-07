@@ -4,12 +4,13 @@ const orders = require("./api/router/orders");
 
 const mongoose = require("mongoose");
 const express = require("express");
+const cors = require("cors");
 
 const app = express();
 
 const port = process.env.PORT || 3000;
 const connectionString = "mongodb://localhost:27017/theMirror";
-
+app.use(cors());
 app.use(express.json());
 
 app.get("/", (req, res) => res.send("<h1>Welcome to The Mirror Api</h1>"));
